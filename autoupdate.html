@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Automatic SoP Update &mdash; DVA SoP API 0.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="DVA SoP API 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Status" href="status.html"/>
+        <link rel="prev" title="Operations" href="operations.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> DVA SoP API
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="specs.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rules.html">Processing Rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Operations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Automatic SoP Update</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#new-sop-instruments-for-new-conditions">New SoP instruments for new conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#amended-sop-instruments">Amended SoP instruments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-sop-instrument-repealing-existing-instrument">New SoP instrument repealing existing instrument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cease-repeal-without-replacement">Cease/Repeal without Replacement</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="status.html">Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment Instructions</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">DVA SoP API</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Automatic SoP Update</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/autoupdate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="automatic-sop-update">
+<h1>Automatic SoP Update<a class="headerlink" href="#automatic-sop-update" title="Permalink to this headline">¶</a></h1>
+<p>There are four cases where SoP changes are handled automatically:</p>
+<ol class="arabic simple">
+<li>A new SoP instrument, which not not repeal any existing instruments (e.g.: for a previously unrecognised condition).</li>
+<li>An amendment to an existing SoP instrument.</li>
+<li>A new SoP instrument which repeals one or more existing instruments.</li>
+<li>Revocation of an existing SoP without any replacement.</li>
+</ol>
+<div class="section" id="new-sop-instruments-for-new-conditions">
+<h2>New SoP instruments for new conditions<a class="headerlink" href="#new-sop-instruments-for-new-conditions" title="Permalink to this headline">¶</a></h2>
+<p>For first case, notification of the new SoP comes from the email updates services of the Legislation Register.  An example notification is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Amendment</span> <span class="n">Statement</span> <span class="n">of</span> <span class="n">Principles</span> <span class="n">concerning</span> <span class="n">anxiety</span> <span class="n">disorder</span> <span class="n">No</span><span class="o">.</span> <span class="mi">100</span> <span class="n">of</span> <span class="mi">2016</span>
+<span class="n">Amendment</span> <span class="n">Statement</span> <span class="n">of</span> <span class="n">Principles</span> <span class="n">concerning</span> <span class="n">anxiety</span> <span class="n">disorder</span><span class="o">.</span>
+<span class="n">Item</span> <span class="n">was</span> <span class="n">published</span> <span class="n">on</span> <span class="mi">1</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="mi">2016</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">legislation</span><span class="o">.</span><span class="n">gov</span><span class="o">.</span><span class="n">au</span><span class="o">/</span><span class="n">Details</span><span class="o">/</span><span class="n">F2016L01698</span>
+</pre></div>
+</div>
+<p>Following notification, the API retrieves the SoP from the Legislation Register and adds it to its database.</p>
+</div>
+<div class="section" id="amended-sop-instruments">
+<h2>Amended SoP instruments<a class="headerlink" href="#amended-sop-instruments" title="Permalink to this headline">¶</a></h2>
+<p>For this case, we wait until the Legislation Register publishes an updated compilation for the instrument.  The API retrieves the latest compilation by polling the Legislation Register (using the &#8216;/Latest&#8217;, see <a class="reference external" href="https://www.legislation.gov.au/Content/Linking">https://www.legislation.gov.au/Content/Linking</a>).
+This occurs for all SoPs in the database regularly, at least every 24 hours.  When the Legislation Register indicates the latest compilation has a different Register ID to the one held in the database, the API <em>replaces</em> the existing one.</p>
+</div>
+<div class="section" id="new-sop-instrument-repealing-existing-instrument">
+<h2>New SoP instrument repealing existing instrument<a class="headerlink" href="#new-sop-instrument-repealing-existing-instrument" title="Permalink to this headline">¶</a></h2>
+<p>For SoP instruments already in its database, the API regularly polls the Legislation Register to check if they have been repealed, ceased or revoked.  When this has happened, the Register gives a pointer to the repealing instrument as well as the date of repeal.  The API retrieves this new instrument and loads it to its database as a replacement SoP.  It end dates the previous SoP.  The end date of the previous SoP is the date <em>one day before</em> the date of effect of the new SoP.</p>
+</div>
+<div class="section" id="cease-repeal-without-replacement">
+<h2>Cease/Repeal without Replacement<a class="headerlink" href="#cease-repeal-without-replacement" title="Permalink to this headline">¶</a></h2>
+<p>This works similarly to the previous case, except that the repealing instrument is not a SoP in its own right.  If the API cannot identify the repealing instrument as a new SoP (the case above), it end dates the existing SoP in its database.  The end date is the date of repeal shown on the Legislation Register.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="status.html" class="btn btn-neutral float-right" title="Status" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="operations.html" class="btn btn-neutral" title="Operations" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Gov Law Tech.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
