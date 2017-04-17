@@ -168,13 +168,25 @@
 <p>Each test case consists consist of a file with the body of the JSON request.  If the file name starts with &#8216;PASS&#8217;, the SoP Support Service is expected to return at least one SoP factor satisfied.  If the file name starts with &#8216;FAIL&#8217;, the SoP Support Service is supposed to return no factors satisfied.</p>
 <p>The steps to add a new system test are:</p>
 <ol class="arabic simple">
-<li>Ensure you have a GitHub account and have cloned the dva-sop-api repository.  The Digital Transformation Agency runs courses on Git and GitHub, and there is also ample documentation online.</li>
-<li>Upload test files to the folder at <a class="reference external" href="https://github.com/govlawtech/dva-sop-api/tree/dvatesting/system-tests/src/test/resources/dvaDefinedTestData">https://github.com/govlawtech/dva-sop-api/tree/dvatesting/system-tests/src/test/resources/dvaDefinedTestData</a></li>
-<li>Submit a pull request via GitHub.</li>
-<li>When the repository owner accepts your pull request, the tests will run automatically.  The &#8216;Build Status&#8217; icon at <a class="reference external" href="https://github.com/govlawtech/dva-sop-api">https://github.com/govlawtech/dva-sop-api</a> shows whether there are any failures.  If you click the icon, it will show the log of the test run.  This <em>may</em> indicate the reason for any failures.</li>
+<li>Ensure you have a GitHub account and have cloned the dva-sop-api-system-tests repository.  The Digital Transformation Agency runs courses on Git and GitHub, and there is also ample documentation online.</li>
+<li>Upload test files to the folder at <a class="reference external" href="https://github.com/govlawtech/dva-sop-api-system-tests/tree/master/src/test/resources/dvaDefinedTestData">https://github.com/govlawtech/dva-sop-api-system-tests/tree/master/src/test/resources/dvaDefinedTestData</a>.</li>
+<li>When the repository owner accepts your pull request, the tests will run automatically.</li>
 </ol>
-<p>In order to report on these tests cleanly, the results for these tests are collected into a separate HTML file. This HTML file is automatically posted to an Azure function app that stores it for later retrieval.
-The latest test report can be obtained from: <a class="reference external" href="https://functions-dva-sop-api.azurewebsites.net/api/SystemTests?code=oqcdXdK3DF/cZcWNvsMBXJauaGbmgeJww2RK00GcXy7S1mjTKaKDmg==">https://functions-dva-sop-api.azurewebsites.net/api/SystemTests?code=oqcdXdK3DF/cZcWNvsMBXJauaGbmgeJww2RK00GcXy7S1mjTKaKDmg==</a></p>
+<p>In order to report on these tests cleanly, the results for these tests are collected into a separate web page. The latest test report is at <a class="reference external" href="https://functions-dva-sop-api.azurewebsites.net/api/SystemTests?code=oqcdXdK3DF/cZcWNvsMBXJauaGbmgeJww2RK00GcXy7S1mjTKaKDmg==">https://functions-dva-sop-api.azurewebsites.net/api/SystemTests?code=oqcdXdK3DF/cZcWNvsMBXJauaGbmgeJww2RK00GcXy7S1mjTKaKDmg==</a></p>
+<p>When a test fails, there are three possible reasons:</p>
+<ol class="arabic simple">
+<li>The format of the test case does not match the expected format.  The error message of the test case may indicate the problem.  The solution is to fix the format of the test case.</li>
+<li><dl class="first docutils">
+<dt>The expected outcome of the test case does not match the expected outcome for that scenario in the specifications or configuration.  If the expected outcome is correct, the configuration or specifications need to be changed.  If the expected outcome is incorrect, change the expected outcome.  The specifications are in this documentation.  The configuration which is currently active in the test environment is at:</dt>
+<dd><ul class="first last">
+<li>For BoP: <a class="reference external" href="https://dvasopapistoragedevtest.blob.core.windows.net/ruleconfiguration/bop.csv">https://dvasopapistoragedevtest.blob.core.windows.net/ruleconfiguration/bop.csv</a></li>
+<li>For RH: <a class="reference external" href="https://dvasopapistoragedevtest.blob.core.windows.net/ruleconfiguration/rh.csv">https://dvasopapistoragedevtest.blob.core.windows.net/ruleconfiguration/rh.csv</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>The code does not correctly implement the specifications or apply the configuration.  The tracing info in the test case report may indicate the problem.  The solution is to fix the code.</li>
+</ol>
 </div>
 
 
