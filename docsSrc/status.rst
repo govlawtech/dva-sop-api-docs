@@ -6,74 +6,7 @@ Status
 .. |check| unicode:: 10003 .. checkmark
 .. |cross| unicode:: U+2717 .. cross
 
-.. list-table:: SoP Coverage
-  :widths: 5 5 5 5
-  :header-rows: 1
-  
-  * - SoP
-    - Auto-updating factors
-    - Wear and Tear Processing
-    - Acute Processing
-  * - Lumbar Spondylosis
-    - |check|
-    - |check|
-    - |cross|
-  * - Osteoarthritis
-    - |check|
-    - |cross|
-    - |cross|
-  * - Thoraic Spondylosis
-    - |check|
-    - |cross|
-    - |cross|
-  * - Cervical spondylosis
-    - |check|
-    - |cross|
-    - |cross|
-  * - Chondromalacia patella
-    - |check|
-    - |cross|
-    - |cross|
-  * - Epicondylitis
-    - |check|
-    - |cross|
-    - |cross|
-  * - Haemorrhoids
-    - |check|
-    - |cross|
-    - |cross|
-  * - Iliotibial Band Syndrome
-    - |check|
-    - |cross|
-    - |cross|
-  * - Inguinal hernia
-    - |check|
-    - |cross|
-    - |cross|
-  * - Internal derangement of the knee
-    - |check|
-    - |cross|
-    - |cross|
-  * - Irritable bowel syndrome
-    - |check|
-    - |cross|
-    - |cross|
-  * - Joint Instability
-    - |check|
-    - |cross|
-    - |cross|
-  * - Posttraumatic stress disorder
-    - |check|
-    - |cross|
-    - |cross|
-  * - Sleep apnoea
-    - |check|
-    - |cross|
-    - |cross|
-  * - Pes planus
-    - |check|
-    - |cross|
-    - |cross|
+Currently included SoPs are listed at https://dvasopapi.azurewebsites.net/status.
 
 
 .. list-table:: SoP Reference Service - Service Determinations
@@ -285,9 +218,9 @@ Status
    * - Java client
      - Easier for DVA to use API
      - |check|
-   * - Plain text configuration of rules
+   * - Spreadsheet based configuration of rules
      - Easier for DVA to change rules
-     - idea
+     - |check|
 
 .. rubric:: Notes
 
