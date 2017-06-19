@@ -39,7 +39,7 @@ Currently included SoPs are listed at https://dvasopapi.azurewebsites.net/status
      - |check|
    * - Declared operations update automatically
      - 4.2
-     - |cross|
+     - |check|
      
 
 .. list-table:: SoP Reference Service - SoPs
@@ -99,7 +99,7 @@ Currently included SoPs are listed at https://dvasopapi.azurewebsites.net/status
      - |check|
    * - Batch job to run updates nightly
      - 4.2
-     - (almost!)
+     - |check|
      
 
     
@@ -148,8 +148,7 @@ Currently included SoPs are listed at https://dvasopapi.azurewebsites.net/status
      - |check|
    * - Human-readable output
      - 4.1.3.2
-     - (still needs pie chart and API endpoint)
-
+     - |check|
 
 
 
