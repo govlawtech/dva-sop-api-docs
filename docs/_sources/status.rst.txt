@@ -6,6 +6,22 @@ Status
 .. |check| unicode:: 10003 .. checkmark
 .. |cross| unicode:: U+2717 .. cross
 
+Each API endpoint has a status page showing current coverage:
+
+.. list-table:: Status
+   :widths 20 20
+   :header-rows: 1
+
+   * - Endpoint
+     - Status
+   * - Production
+     - https://dvasopapi.azurewebsites.net/status
+   * - Devtest
+     - https://dvasopapi-devtest.azurewebsites.net/status
+   * - Dev
+     - https://dvasopapi-dev.azurewebsites.net/status
+
+
 Currently included SoPs are listed at https://dvasopapi.azurewebsites.net/status.
 
 

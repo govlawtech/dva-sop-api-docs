@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.1
+                1.1
               </div>
             
           
@@ -177,7 +177,7 @@
 <dt>App Settings:</dt>
 <dd><ul class="first last">
 <li>Environment variable &#8216;DEP_ENV&#8217; set to &#8216;devtest&#8217;, &#8216;staging&#8217; or &#8216;prod&#8217; as appropriate.</li>
-<li>Deployment slot names: &#8216;dvasopapi-devtest&#8217;, &#8216;dvasopapi-staging&#8217;, &#8216;dvasopapi&#8217; (production).</li>
+<li>Deployment slot names: &#8216;dvasopapi-dev, dvasopapi-devtest&#8217;, &#8216;dvasopapi-staging&#8217;, &#8216;dvasopapi&#8217; (production).</li>
 </ul>
 </dd>
 </dl>
@@ -188,31 +188,42 @@
 </ul>
 <table border="1" class="docutils">
 <colgroup>
-<col width="25%" />
 <col width="17%" />
-<col width="35%" />
+<col width="12%" />
 <col width="23%" />
+<col width="16%" />
+<col width="32%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>Environment</td>
 <td>DEP_ENV</td>
 <td>Deployment Slot</td>
 <td>Git Branch</td>
+<td>Azure Storage Account</td>
 </tr>
-<tr class="row-even"><td>devtest</td>
+<tr class="row-even"><td>dev</td>
+<td>devtest</td>
+<td>dvasopapi-dev</td>
+<td>devtest</td>
+<td>dvasopapistoragedevtest</td>
+</tr>
+<tr class="row-odd"><td>devtest</td>
 <td>devtest</td>
 <td>dvasopapi-devtest</td>
 <td>devtest</td>
+<td>dvasopapistoragedevtest</td>
 </tr>
-<tr class="row-odd"><td>staging</td>
+<tr class="row-even"><td>staging</td>
 <td>prod</td>
 <td>dvasopapi-staging</td>
 <td>master</td>
+<td>dvasopapistorage</td>
 </tr>
-<tr class="row-even"><td>production</td>
+<tr class="row-odd"><td>production</td>
 <td>prod</td>
 <td>dvasopapi</td>
 <td>master</td>
+<td>dvasopapistorage</td>
 </tr>
 </tbody>
 </table>
