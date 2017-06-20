@@ -21,6 +21,7 @@ Variations from Spec
 
 * The label shown as ```registeredId``` in the example response for the Get Sop Factors query is actually ```registerId```.
 
+* The response from the SoP Support Service contains additional fields to support Straight Through Processing.
 
 .. rubric:: Footnotes
 

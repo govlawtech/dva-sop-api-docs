@@ -19,12 +19,3 @@ FTP Deploy
     - Configure the FTP user name and password via the Azure management interface.
     - The user name is prefaced with the deployment slot name. For example, 'dvasopapi_devtest\yourusername'.  The password is set 'Deployment Credentials' in the Azure management interface.
 
-*********************
-Source Control Deploy
-*********************
-
-#. Build the .war using the Gradle 'copyWar' task.  This builds the war and copies it to the 'webapps' directory.
-#. Git commit and push.
-
-
-
