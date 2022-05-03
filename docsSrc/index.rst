@@ -11,14 +11,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   specs
-   rules
+   overview
+   sops
    operations
-   autoupdate
-   testing
-   status
-   config
-   deployment
-
-
-
+   decisionReadyProcessing
+   conditionMapper
