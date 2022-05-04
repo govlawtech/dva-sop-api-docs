@@ -1,11 +1,13 @@
-##########
-Operations
-##########
+############################
+MRCA and VEA Operations Data
+############################
 
- .. |ga| unicode:: U+2014
-    :trim:
+The API provides an up-to-date machine-readable feed of legally recognised military operations.  This data is important because it impacts veterans'
+entitlements to treatment and rehabilitation, as well as the quantum of compensation.  The feed includes both warlike and non-warlike operations under
+the Military Compensation and Rehabilitation Act, as well as warlike, non-warlike, hazardous and peacekeeping activities under the Veterans'
+Entitlements Act. It includes dates, locations, names and legal references to the primary sources. 
 
- * Operation names are expected to be exactly as they appear in the relevant Service Determinations. 
- * Note the 'end of guarded area' character (U+0097) in the name 'Enduring Freedom |ga| Afghanistan'
- * The Operation Name for operation with description 'ADF contribution to the NATO no-fly-zone and maritime enforcement operation against Libya' is ``NNMEOAL``.  (The Service Determination omits a name, so we made one up to identify the operation.)
+DVA uses this feed currently in two ways:
 
+* The Decision Ready Processing rules described below rely on it to make accurate determinations.
+* MyService uses it directly to help veterans fill in their service	history accurately in online forms.

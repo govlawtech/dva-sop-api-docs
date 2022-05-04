@@ -12,7 +12,9 @@ Contents:
    :maxdepth: 2
 
    overview
+   interaction
    sops
    operations
    decisionReadyProcessing
    conditionMapper
+   technical

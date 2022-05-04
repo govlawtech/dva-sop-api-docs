@@ -53,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'DVA SoP API'
-copyright = u'2017, Gov Law Tech Services Pty Ltd'
+copyright = u'Gov Law Tech Services Pty Ltd'
 author = u'Gov Law Tech'
 
 # The version info for the project you're documenting, acts as replacement for

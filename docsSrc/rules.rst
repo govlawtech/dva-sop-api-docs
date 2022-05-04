@@ -2,9 +2,15 @@
 Processing Rules
 #########################
 
-* Where a veteran has a service historyincluding multiple service branches (eg, Army and RAN), the standard of proof (Reasonable Hypothesis or Balance of Probabilities) is determined taking into account:
+Notes:
+
+* Configuration of processing rules is in accordance with rules approved by the Repatriation Commissions and  Military Rehabilitation and Compensation Commission.
+  
+* Where a veteran has a service history including multiple service branches (eg, Army and RAN), the standard of proof (Reasonable Hypothesis or Balance of Probabilities) is determined taking into account:
     - the entire service history, including multiple branches;
     - the rank they held in the last service branch in which they started before the condition started.
+
+* Initial Liability recommendations for veterans with service history from multiple branches is are according to the branch which is most beneficial to the veteran.  
 
 * The number of days of operational service in a given interval is the number of whole elapsed 24 hour periods, rounded up to the nearest day.  This takes account of time zones, daylight saving and leap seconds etc.
 
