@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-assisted Condition Mapping &mdash; DVA SoP API 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Security and Privacy" href="securityAndPrivacy.html" />
+    <link rel="prev" title="Decision Ready Processing" href="decisionReadyProcessing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> DVA SoP API
+          </a>
+              <div class="version">
+                1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview and Benefits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interaction.html">How does SoP API Interact with MyService?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sops.html">Statements of Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">MRCA and VEA Operations Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decisionReadyProcessing.html">Decision Ready Processing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AI-assisted Condition Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="securityAndPrivacy.html">Security and Privacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technical.html">Technical Information</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DVA SoP API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>AI-assisted Condition Mapping</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/conditionMapper.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ai-assisted-condition-mapping">
+<h1>AI-assisted Condition Mapping<a class="headerlink" href="#ai-assisted-condition-mapping" title="Permalink to this headline">¶</a></h1>
+<p>This service helps maximise the number of times MyService can automatically
+match the veteran’s particular condition to one on the list of <em>SoP</em> conditions for which DVA provides treatment and compensation.  It uses machine-learning techniques to match the veteran’s description of their diagnosis to a SoP condition - as well as conventional text-matching and spell-checking.  The AI component exploits a Microsoft cloud-based commercial natural language processing API: <em>Language Understanding Intelligence Service</em> DVA staff claims assessors contributed expert guidance to its initial training.</p>
+<p>The department has historically taken an entirely manual approach to classifying a condition: veterans write their medical condition in free form text on a form. This was either on a paper claim form or an online form called the <em>Single Online Claim Form</em>, or more-recently a drop-down box in MyService.</p>
+<p>Claims assessment officers then attempt to match the veteran’s description to a recognised SoP condition, following policy guidance (Policy Guidance Note AN08, Full Federal Court Decision     - Benjamin v The Repatriation Commission). This can involve time-consuming and frustrating correspondence with the applicant to clarify their condition: their description or their doctor’s description rarely matches one of the white-listed SoP conditions closely.  The automatic approach removes this pain in a substantial portion of cases.</p>
+<p>Additionally, it makes the most of Decision Ready Processing: it enables MyService to route more claims down the fast-tracked path automatically. Otherwise, these claims would miss out on the fast-tracked processing.</p>
+<p>Before using this function, MyService automatically classified only 10.5% of claims into one of the fast-tracked categories: Straight-Through, Streamlined or Computer-Based Decisions. (Source: production logs for MyService from late December 2017 to end of June 2018 showed 6421 claims, of which only 671 were tagged for fast-tracked processing.)</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/aiMatcher.png"><img alt="_images/aiMatcher.png" src="_images/aiMatcher.png" style="width: 580.5px; height: 336.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Classification of conditions, derived from AI condition matcher logs from week commencing 20 August 2018.  Note that <em>calls</em> refers to API service calls - a proxy for claim proportions, but not absolute numbers.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In light of data collected from production, Gov Law Tech and DVA further tuned the AI.  These changes took effect on 1 December 2018.  This increased its effectiveness by 10 to 15% so MyService correctly fast-tracks around half of initial liability claims.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="decisionReadyProcessing.html" class="btn btn-neutral float-left" title="Decision Ready Processing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="securityAndPrivacy.html" class="btn btn-neutral float-right" title="Security and Privacy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Gov Law Tech Services Pty Ltd.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
