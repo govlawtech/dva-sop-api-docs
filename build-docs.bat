@@ -1,1 +1,1 @@
-sphinx-build docsSrc docs
+sphinx-build docs _build
