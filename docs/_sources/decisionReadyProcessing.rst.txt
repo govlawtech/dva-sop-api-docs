@@ -34,7 +34,7 @@ Veterans with Multiple Branches of Service
     - the entire service history, including multiple branches;
     - the rank they held in the last service branch in which they started before the condition started.
 
-* Initial Liability recommendations for veterans with service history from multiple branches is are according to the branch which is most beneficial to the veteran.  
+* Initial Liability recommendations for veterans with service history from multiple branches is according to the branch which is most beneficial to the veteran.  
 
 Dates and Times
 ***************
@@ -45,3 +45,21 @@ Dates and Times
 * Dates of operations in Service Declarations are assumed to be in the "Australia/ACT" IANA TZDB time zone.  The start time is assumed to be 12 AM on the date specified in the Declaration.  End dates of operations are assumed to be inclusive: the end time is assumed to be 12 midnight PM on the date specified.
 
 * Commencement dates and dates of effect are assumed to be in the "Australia/ACT" IANA TZDB time zone, at 12AM.
+
+Counting Days of Service
+************************
+
+The policy intention is to count whole days of service.  The issue is how to do this given the service history data.
+
+In particular, the service history data:
+
+* Has local dates: no time zone information;
+* Sometimes has sequences of the same operation with the same start and end day;
+* Does not indicate explicitly whether the end date is inclusive or exclusive - although the fact that there are operations where the end date of one matches the start date of another suggest it is exclusive.
+
+For the purpose of counting days of service:
+
+* We assume the time zone is IANA time zone 'Australia/Canberra'.  The location of the operation is irrelevant.  The justification for this is that it enables easy comparison with dates in the legislative instruments.  The dates in the legislative instruments are in this time zone.
+* We assume that the end date of intervals is actually inclusive.  This is different to normal practice for storing date intervals.  There are two justifications for this.   Firstly, it is most favourable to the applicant.  Secondly, it matched what delegates and testers expected.  It also probably matches what a veteran would expect when entering service history manually.  (This was a deliberate change by DVA from an earlier version where we treated the end dates as exclusive, which was on my mind.)
+
+The consequence of these assumptions is that we need to adjust start and end dates when a service record shows an operation starting and ending on the same day.  These are otherwise 'overlapping': assuming the end date is inclusive.  We subtract one day from end dates which overlap with subsequent operations.  Otherwise there would be double counting.

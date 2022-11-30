@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI-assisted Condition Mapping &mdash; DVA SoP API 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -82,7 +81,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ai-assisted-condition-mapping">
+  <div class="section" id="ai-assisted-condition-mapping">
 <h1>AI-assisted Condition Mapping<a class="headerlink" href="#ai-assisted-condition-mapping" title="Permalink to this headline">¶</a></h1>
 <p>This service helps maximise the number of times MyService can automatically
 match the veteran’s particular condition to one on the list of <em>SoP</em> conditions for which DVA provides treatment and compensation.  It uses machine-learning techniques to match the veteran’s description of their diagnosis to a SoP condition - as well as conventional text-matching and spell-checking.  The AI component exploits a Microsoft cloud-based commercial natural language processing API: <em>Language Understanding Intelligence Service</em> DVA staff claims assessors contributed expert guidance to its initial training.</p>
@@ -90,17 +89,15 @@ match the veteran’s particular condition to one on the list of <em>SoP</em> co
 <p>Claims assessment officers then attempt to match the veteran’s description to a recognised SoP condition, following policy guidance (Policy Guidance Note AN08, Full Federal Court Decision     - Benjamin v The Repatriation Commission). This can involve time-consuming and frustrating correspondence with the applicant to clarify their condition: their description or their doctor’s description rarely matches one of the white-listed SoP conditions closely.  The automatic approach removes this pain in a substantial portion of cases.</p>
 <p>Additionally, it makes the most of Decision Ready Processing: it enables MyService to route more claims down the fast-tracked path automatically. Otherwise, these claims would miss out on the fast-tracked processing.</p>
 <p>Before using this function, MyService automatically classified only 10.5% of claims into one of the fast-tracked categories: Straight-Through, Streamlined or Computer-Based Decisions. (Source: production logs for MyService from late December 2017 to end of June 2018 showed 6421 claims, of which only 671 were tagged for fast-tracked processing.)</p>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="_images/aiMatcher.png"><img alt="_images/aiMatcher.png" src="_images/aiMatcher.png" style="width: 580.5px; height: 336.0px;" /></a>
-<figcaption>
-<p><span class="caption-text">Classification of conditions, derived from AI condition matcher logs from week commencing 20 August 2018.  Note that <em>calls</em> refers to API service calls - a proxy for claim proportions, but not absolute numbers.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">Classification of conditions, derived from AI condition matcher logs from week commencing 20 August 2018.  Note that <em>calls</em> refers to API service calls - a proxy for claim proportions, but not absolute numbers.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>In light of data collected from production, Gov Law Tech and DVA further tuned the AI.  These changes took effect on 1 December 2018.  This increased its effectiveness by 10 to 15% so MyService correctly fast-tracks around half of initial liability claims.</p>
-<section id="how-does-the-mapper-work">
+<div class="section" id="how-does-the-mapper-work">
 <h2>How does the Mapper Work?<a class="headerlink" href="#how-does-the-mapper-work" title="Permalink to this headline">¶</a></h2>
 <p>The input of the Mapper is the medical condition as described by the user.  For example, the user may describe their condition as a ‘snake bite’.  The output is a list of current SoP conditions, each with a number from 0 - 100.  The number indicates how confident the service is that the condition as described by the user matches the SoP condition.  For example, for ‘snake bite’, the service might say it matches the SoP ‘animal envenomation’ with confidence ‘97’ and ‘alcohol use disorder’ with confidence level ‘7’.  MyService then makes a decision about how to treat the condition based on a configured confidence threshold.  For example, if MyService is configured to assume that matches with a confidence of 97 or higher are correct.  In that that case, it would treat the claim as an initial liability claim for ‘animal envenomation’.  It can then present appropriate SoP factors to the user.</p>
-<section id="what-is-some-more-detail-on-how-the-mapping-process-works">
+<div class="section" id="what-is-some-more-detail-on-how-the-mapping-process-works">
 <h3>What is some more detail on how the mapping process works?<a class="headerlink" href="#what-is-some-more-detail-on-how-the-mapping-process-works" title="Permalink to this headline">¶</a></h3>
 <p>The Mapper follows the following steps:</p>
 <ol class="arabic simple">
@@ -109,13 +106,13 @@ match the veteran’s particular condition to one on the list of <em>SoP</em> co
 <li><p>Otherwise, the Mapper attempts to match using fuzzy matching.  The current fuzzy matching approach uses a configured instance of Microsoft’s Language Understanding Intelligence Service.  DVA staff trained and configured this service with common ways conditions are described.  This step results in a list of conditions from the configuration and corresponding confidence levels.</p></li>
 <li><p>Finally, the Mapper checks that the output from the fuzzy matching service still matches a current SoP condition.  This is important because the names of SoP conditions can change: usually when the RMA splits or merges existing SoPs.  This step is so that the service does not recommend obsolete conditions before DVA has a chance to retrain it for the new conditions.</p></li>
 </ol>
-</section>
-<section id="how-does-the-fuzzy-matching-process-work">
+</div>
+<div class="section" id="how-does-the-fuzzy-matching-process-work">
 <h3>How does the fuzzy matching process work?<a class="headerlink" href="#how-does-the-fuzzy-matching-process-work" title="Permalink to this headline">¶</a></h3>
 <p>The fuzzy matching process currently relies on a Microsoft service called Language Understanding Intelligence service.  The internals of this service are not visible - it’s proprietary.  According to Microsoft, it uses “state-of-the-art language models that understand the utterance’s meaning and capture word variations, synonyms, and misspellings”.  It likely relies mainly on a technology called ‘word embedding’.  Essentially, the service recognises how much of a particular ‘topic’ a word or group of words contains – based on training across a large corpus of text.  For example, the word ‘snake’ may contain some of a topic relating to animals, and some of a topic relating to poison. It finds the mix of the topics in the words with DVA has configured for a medical condition.  It then checks how similar the topics of the user’s description of their condition are to those topics.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>
