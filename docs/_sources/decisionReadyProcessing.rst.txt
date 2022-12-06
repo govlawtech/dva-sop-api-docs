@@ -63,3 +63,11 @@ For the purpose of counting days of service:
 * We assume that the end date of intervals is actually inclusive.  This is different to normal practice for storing date intervals.  There are two justifications for this.   Firstly, it is most favourable to the applicant.  Secondly, it matched what delegates and testers expected.  It also probably matches what a veteran would expect when entering service history manually.  (This was a deliberate change by DVA from an earlier version where we treated the end dates as exclusive, which was on my mind.)
 
 The consequence of these assumptions is that we need to adjust start and end dates when a service record shows an operation starting and ending on the same day.  These are otherwise 'overlapping': assuming the end date is inclusive.  We subtract one day from end dates which overlap with subsequent operations.  Otherwise there would be double counting.
+
+Semantic Validation of Service History
+**************************************
+
+The following validation rules apply to service history.  The API returns an error response if any of these are failed.
+
+* All periods of operational service have a start date that is after (not just the same as) the end date, if any.
+* All periods of service in a branch (Army, Navy, RAAF) have a start date after the end date, if any.

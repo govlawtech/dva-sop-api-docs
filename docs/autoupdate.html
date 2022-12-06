@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Automatic SoP Update &mdash; DVA SoP API 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -72,7 +73,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="automatic-sop-update">
+  <section id="automatic-sop-update">
 <h1>Automatic SoP Update<a class="headerlink" href="#automatic-sop-update" title="Permalink to this headline">¶</a></h1>
 <p>There are four cases where SoP changes are handled automatically:</p>
 <ol class="arabic simple">
@@ -81,7 +82,7 @@
 <li><p>A new SoP instrument which repeals one or more existing instruments.</p></li>
 <li><p>Revocation of an existing SoP without any replacement.</p></li>
 </ol>
-<div class="section" id="new-sop-instruments-for-new-conditions">
+<section id="new-sop-instruments-for-new-conditions">
 <h2>New SoP instruments for new conditions<a class="headerlink" href="#new-sop-instruments-for-new-conditions" title="Permalink to this headline">¶</a></h2>
 <p>For first case, notification of the new SoP comes from the email updates services of the Legislation Register.  An example notification is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Amendment</span> <span class="n">Statement</span> <span class="n">of</span> <span class="n">Principles</span> <span class="n">concerning</span> <span class="n">anxiety</span> <span class="n">disorder</span> <span class="n">No</span><span class="o">.</span> <span class="mi">100</span> <span class="n">of</span> <span class="mi">2016</span>
@@ -91,21 +92,21 @@
 </pre></div>
 </div>
 <p>Following notification, the API retrieves the SoP from the Legislation Register and adds it to its database.</p>
-</div>
-<div class="section" id="amended-sop-instruments">
+</section>
+<section id="amended-sop-instruments">
 <h2>Amended SoP instruments<a class="headerlink" href="#amended-sop-instruments" title="Permalink to this headline">¶</a></h2>
 <p>For this case, we wait until the Legislation Register publishes an updated compilation for the instrument.  The API retrieves the latest compilation by polling the Legislation Register (using the ‘/Latest’, see <a class="reference external" href="https://www.legislation.gov.au/Content/Linking">https://www.legislation.gov.au/Content/Linking</a>).
 This occurs for all SoPs in the database regularly, at least every 24 hours.  When the Legislation Register indicates the latest compilation has a different Register ID to the one held in the database, the API <em>replaces</em> the existing one.</p>
-</div>
-<div class="section" id="new-sop-instrument-repealing-existing-instrument">
+</section>
+<section id="new-sop-instrument-repealing-existing-instrument">
 <h2>New SoP instrument repealing existing instrument<a class="headerlink" href="#new-sop-instrument-repealing-existing-instrument" title="Permalink to this headline">¶</a></h2>
 <p>For SoP instruments already in its database, the API regularly polls the Legislation Register to check if they have been repealed, ceased or revoked.  When this has happened, the Register gives a pointer to the repealing instrument as well as the date of repeal.  The API retrieves this new instrument and loads it to its database as a replacement SoP.  It end dates the previous SoP.  The end date of the previous SoP is the date <em>one day before</em> the date of effect of the new SoP.</p>
-</div>
-<div class="section" id="cease-repeal-without-replacement">
+</section>
+<section id="cease-repeal-without-replacement">
 <h2>Cease/Repeal without Replacement<a class="headerlink" href="#cease-repeal-without-replacement" title="Permalink to this headline">¶</a></h2>
 <p>This works similarly to the previous case, except that the repealing instrument is not a SoP in its own right.  If the API cannot identify the repealing instrument as a new SoP (the case above), it end dates the existing SoP in its database.  The end date is the date of repeal shown on the Legislation Register.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

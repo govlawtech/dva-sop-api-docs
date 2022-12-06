@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Decision Ready Processing &mdash; DVA SoP API 0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -50,6 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#veterans-with-multiple-branches-of-service">Veterans with Multiple Branches of Service</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dates-and-times">Dates and Times</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#counting-days-of-service">Counting Days of Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semantic-validation-of-service-history">Semantic Validation of Service History</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="conditionMapper.html">AI-assisted Condition Mapping</a></li>
@@ -81,13 +83,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="decision-ready-processing">
+  <section id="decision-ready-processing">
 <h1>Decision Ready Processing<a class="headerlink" href="#decision-ready-processing" title="Permalink to this headline">¶</a></h1>
 <p>The API applies <em>Decision Ready Processing</em> rules, including <em>Straight-Through</em>, <em>Streamlined</em> and <em>Computer Based</em> rules.  These are DVA’s innovative policies designed to fast-track claims for certain conditions, based on the veteran’s service history.   It applies the rules instantaneously to medical and service history data, and makes a recommendation, justified against current, authoritative primary legal sources. Ultimately, MyService may automatically approve a claim based on this recommendation, or forward it to a delegate with the recommendation attached.</p>
 <p>It has proven scalable and reliable: it has grown from initially three conditions to, at time of writing, these cover 40 conditions, accounting for approximately 77% of initial liability claims.  MyService typically calls this service several dozen times each day.</p>
 <p>Configuration of processing rules is in accordance with rules approved by the Repatriation Commissions and  Military Rehabilitation and Compensation Commission.</p>
 <p>Particular rules to note are below.</p>
-<div class="section" id="mental-health-conditions">
+<section id="mental-health-conditions">
 <h2>Mental Health Conditions<a class="headerlink" href="#mental-health-conditions" title="Permalink to this headline">¶</a></h2>
 <p>For the following conditions, only ‘warlike’ service counts for automated initial liability recommedations:</p>
 <ul class="simple">
@@ -97,14 +99,14 @@
 </ul>
 <p>‘Warlike’ service is as defined in the relevant statutory instruments.
 This applies for both MRCA and VEA determinations.</p>
-</div>
-<div class="section" id="types-of-service">
+</section>
+<section id="types-of-service">
 <h2>Types of Service<a class="headerlink" href="#types-of-service" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Currently, ‘continuous full time service’ counts towards automated initial liability recommendations.  Reserve or cadet service does not count.</p></li>
 </ul>
-</div>
-<div class="section" id="veterans-with-multiple-branches-of-service">
+</section>
+<section id="veterans-with-multiple-branches-of-service">
 <h2>Veterans with Multiple Branches of Service<a class="headerlink" href="#veterans-with-multiple-branches-of-service" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
@@ -117,16 +119,16 @@ This applies for both MRCA and VEA determinations.</p>
 </li>
 <li><p>Initial Liability recommendations for veterans with service history from multiple branches is according to the branch which is most beneficial to the veteran.</p></li>
 </ul>
-</div>
-<div class="section" id="dates-and-times">
+</section>
+<section id="dates-and-times">
 <h2>Dates and Times<a class="headerlink" href="#dates-and-times" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The number of days of operational service in a given interval is the number of whole elapsed 24 hour periods, rounded up to the nearest day.  This takes account of time zones, daylight saving and leap seconds etc.</p></li>
 <li><p>Dates of operations in Service Declarations are assumed to be in the “Australia/ACT” IANA TZDB time zone.  The start time is assumed to be 12 AM on the date specified in the Declaration.  End dates of operations are assumed to be inclusive: the end time is assumed to be 12 midnight PM on the date specified.</p></li>
 <li><p>Commencement dates and dates of effect are assumed to be in the “Australia/ACT” IANA TZDB time zone, at 12AM.</p></li>
 </ul>
-</div>
-<div class="section" id="counting-days-of-service">
+</section>
+<section id="counting-days-of-service">
 <h2>Counting Days of Service<a class="headerlink" href="#counting-days-of-service" title="Permalink to this headline">¶</a></h2>
 <p>The policy intention is to count whole days of service.  The issue is how to do this given the service history data.</p>
 <p>In particular, the service history data:</p>
@@ -141,8 +143,16 @@ This applies for both MRCA and VEA determinations.</p>
 <li><p>We assume that the end date of intervals is actually inclusive.  This is different to normal practice for storing date intervals.  There are two justifications for this.   Firstly, it is most favourable to the applicant.  Secondly, it matched what delegates and testers expected.  It also probably matches what a veteran would expect when entering service history manually.  (This was a deliberate change by DVA from an earlier version where we treated the end dates as exclusive, which was on my mind.)</p></li>
 </ul>
 <p>The consequence of these assumptions is that we need to adjust start and end dates when a service record shows an operation starting and ending on the same day.  These are otherwise ‘overlapping’: assuming the end date is inclusive.  We subtract one day from end dates which overlap with subsequent operations.  Otherwise there would be double counting.</p>
-</div>
-</div>
+</section>
+<section id="semantic-validation-of-service-history">
+<h2>Semantic Validation of Service History<a class="headerlink" href="#semantic-validation-of-service-history" title="Permalink to this headline">¶</a></h2>
+<p>The following validation rules apply to service history.  The API returns an error response if any of these are failed.</p>
+<ul class="simple">
+<li><p>All periods of operational service have a start date that is after (not just the same as) the end date, if any.</p></li>
+<li><p>All periods of service in a branch (Army, Navy, RAAF) have a start date after the end date, if any.</p></li>
+</ul>
+</section>
+</section>
 
 
            </div>
