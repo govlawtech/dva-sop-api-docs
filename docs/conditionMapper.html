@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI-assisted Condition Mapping &mdash; DVA SoP API 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> DVA SoP API
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DVA SoP API
           </a>
               <div class="version">
                 1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -71,8 +76,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>AI-assisted Condition Mapping</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AI-assisted Condition Mapping</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/conditionMapper.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -83,7 +88,7 @@
            <div itemprop="articleBody">
              
   <section id="ai-assisted-condition-mapping">
-<h1>AI-assisted Condition Mapping<a class="headerlink" href="#ai-assisted-condition-mapping" title="Permalink to this headline">¶</a></h1>
+<h1>AI-assisted Condition Mapping<a class="headerlink" href="#ai-assisted-condition-mapping" title="Link to this heading">¶</a></h1>
 <p>This service helps maximise the number of times MyService can automatically
 match the veteran’s particular condition to one on the list of <em>SoP</em> conditions for which DVA provides treatment and compensation.  It uses machine-learning techniques to match the veteran’s description of their diagnosis to a SoP condition - as well as conventional text-matching and spell-checking.  The AI component exploits a Microsoft cloud-based commercial natural language processing API: <em>Language Understanding Intelligence Service</em> DVA staff claims assessors contributed expert guidance to its initial training.</p>
 <p>The department has historically taken an entirely manual approach to classifying a condition: veterans write their medical condition in free form text on a form. This was either on a paper claim form or an online form called the <em>Single Online Claim Form</em>, or more-recently a drop-down box in MyService.</p>
@@ -93,15 +98,15 @@ match the veteran’s particular condition to one on the list of <em>SoP</em> co
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="_images/aiMatcher.png"><img alt="_images/aiMatcher.png" src="_images/aiMatcher.png" style="width: 580.5px; height: 336.0px;" /></a>
 <figcaption>
-<p><span class="caption-text">Classification of conditions, derived from AI condition matcher logs from week commencing 20 August 2018.  Note that <em>calls</em> refers to API service calls - a proxy for claim proportions, but not absolute numbers.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p><span class="caption-text">Classification of conditions, derived from AI condition matcher logs from week commencing 20 August 2018.  Note that <em>calls</em> refers to API service calls - a proxy for claim proportions, but not absolute numbers.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
 </figcaption>
 </figure>
 <p>In light of data collected from production, Gov Law Tech and DVA further tuned the AI.  These changes took effect on 1 December 2018.  This increased its effectiveness by 10 to 15% so MyService correctly fast-tracks around half of initial liability claims.</p>
 <section id="how-does-the-mapper-work">
-<h2>How does the Mapper Work?<a class="headerlink" href="#how-does-the-mapper-work" title="Permalink to this headline">¶</a></h2>
+<h2>How does the Mapper Work?<a class="headerlink" href="#how-does-the-mapper-work" title="Link to this heading">¶</a></h2>
 <p>The input of the Mapper is the medical condition as described by the user.  For example, the user may describe their condition as a ‘snake bite’.  The output is a list of current SoP conditions, each with a number from 0 - 100.  The number indicates how confident the service is that the condition as described by the user matches the SoP condition.  For example, for ‘snake bite’, the service might say it matches the SoP ‘animal envenomation’ with confidence ‘97’ and ‘alcohol use disorder’ with confidence level ‘7’.  MyService then makes a decision about how to treat the condition based on a configured confidence threshold.  For example, if MyService is configured to assume that matches with a confidence of 97 or higher are correct.  In that that case, it would treat the claim as an initial liability claim for ‘animal envenomation’.  It can then present appropriate SoP factors to the user.</p>
 <section id="what-is-some-more-detail-on-how-the-mapping-process-works">
-<h3>What is some more detail on how the mapping process works?<a class="headerlink" href="#what-is-some-more-detail-on-how-the-mapping-process-works" title="Permalink to this headline">¶</a></h3>
+<h3>What is some more detail on how the mapping process works?<a class="headerlink" href="#what-is-some-more-detail-on-how-the-mapping-process-works" title="Link to this heading">¶</a></h3>
 <p>The Mapper follows the following steps:</p>
 <ol class="arabic simple">
 <li><p>First, the Mapper checks if the condition is a case-insensitive match for a condition name in a current Statement of Principle.  The condition names are exactly as in the written in the SoP, except that they are case insensitive.  For example, ‘snake bite’ is not a recognised condition.  The likely condition is ‘animal envenomation’.  This is the exact name of the condition from the relevant SoP.  If the user entered ‘Animal Envenomation’, this would match however – even though it uses capital letters and the SoP uses lower case letters.</p></li>
@@ -111,7 +116,7 @@ match the veteran’s particular condition to one on the list of <em>SoP</em> co
 </ol>
 </section>
 <section id="how-does-the-fuzzy-matching-process-work">
-<h3>How does the fuzzy matching process work?<a class="headerlink" href="#how-does-the-fuzzy-matching-process-work" title="Permalink to this headline">¶</a></h3>
+<h3>How does the fuzzy matching process work?<a class="headerlink" href="#how-does-the-fuzzy-matching-process-work" title="Link to this heading">¶</a></h3>
 <p>The fuzzy matching process currently relies on a Microsoft service called Language Understanding Intelligence service.  The internals of this service are not visible - it’s proprietary.  According to Microsoft, it uses “state-of-the-art language models that understand the utterance’s meaning and capture word variations, synonyms, and misspellings”.  It likely relies mainly on a technology called ‘word embedding’.  Essentially, the service recognises how much of a particular ‘topic’ a word or group of words contains – based on training across a large corpus of text.  For example, the word ‘snake’ may contain some of a topic relating to animals, and some of a topic relating to poison. It finds the mix of the topics in the words with DVA has configured for a medical condition.  It then checks how similar the topics of the user’s description of their condition are to those topics.</p>
 </section>
 </section>

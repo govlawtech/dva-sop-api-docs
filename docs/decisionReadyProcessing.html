@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Decision Ready Processing &mdash; DVA SoP API 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -27,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> DVA SoP API
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DVA SoP API
           </a>
               <div class="version">
                 1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -72,8 +77,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Decision Ready Processing</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Decision Ready Processing</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/decisionReadyProcessing.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -84,13 +89,13 @@
            <div itemprop="articleBody">
              
   <section id="decision-ready-processing">
-<h1>Decision Ready Processing<a class="headerlink" href="#decision-ready-processing" title="Permalink to this headline">¶</a></h1>
+<h1>Decision Ready Processing<a class="headerlink" href="#decision-ready-processing" title="Link to this heading">¶</a></h1>
 <p>The API applies <em>Decision Ready Processing</em> rules, including <em>Straight-Through</em>, <em>Streamlined</em> and <em>Computer Based</em> rules.  These are DVA’s innovative policies designed to fast-track claims for certain conditions, based on the veteran’s service history.   It applies the rules instantaneously to medical and service history data, and makes a recommendation, justified against current, authoritative primary legal sources. Ultimately, MyService may automatically approve a claim based on this recommendation, or forward it to a delegate with the recommendation attached.</p>
 <p>It has proven scalable and reliable: it has grown from initially three conditions to, at time of writing, these cover 40 conditions, accounting for approximately 77% of initial liability claims.  MyService typically calls this service several dozen times each day.</p>
 <p>Configuration of processing rules is in accordance with rules approved by the Repatriation Commissions and  Military Rehabilitation and Compensation Commission.</p>
 <p>Particular rules to note are below.</p>
 <section id="mental-health-conditions">
-<h2>Mental Health Conditions<a class="headerlink" href="#mental-health-conditions" title="Permalink to this headline">¶</a></h2>
+<h2>Mental Health Conditions<a class="headerlink" href="#mental-health-conditions" title="Link to this heading">¶</a></h2>
 <p>For the following conditions, only ‘warlike’ service counts for automated initial liability recommedations:</p>
 <ul class="simple">
 <li><p>“posttraumatic stress disorder”,</p></li>
@@ -101,13 +106,13 @@
 This applies for both MRCA and VEA determinations.</p>
 </section>
 <section id="types-of-service">
-<h2>Types of Service<a class="headerlink" href="#types-of-service" title="Permalink to this headline">¶</a></h2>
+<h2>Types of Service<a class="headerlink" href="#types-of-service" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>Currently, ‘continuous full time service’ counts towards automated initial liability recommendations.  Reserve or cadet service does not count.</p></li>
 </ul>
 </section>
 <section id="veterans-with-multiple-branches-of-service">
-<h2>Veterans with Multiple Branches of Service<a class="headerlink" href="#veterans-with-multiple-branches-of-service" title="Permalink to this headline">¶</a></h2>
+<h2>Veterans with Multiple Branches of Service<a class="headerlink" href="#veterans-with-multiple-branches-of-service" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Where a veteran has a service history including multiple service branches (eg, Army and RAN), the standard of proof (Reasonable Hypothesis or Balance of Probabilities) is determined taking into account:</dt><dd><ul>
@@ -121,7 +126,7 @@ This applies for both MRCA and VEA determinations.</p>
 </ul>
 </section>
 <section id="dates-and-times">
-<h2>Dates and Times<a class="headerlink" href="#dates-and-times" title="Permalink to this headline">¶</a></h2>
+<h2>Dates and Times<a class="headerlink" href="#dates-and-times" title="Link to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>The number of days of operational service in a given interval is the number of whole elapsed 24 hour periods, rounded up to the nearest day.  This takes account of time zones, daylight saving and leap seconds etc.</p></li>
 <li><p>Dates of operations in Service Declarations are assumed to be in the “Australia/ACT” IANA TZDB time zone.  The start time is assumed to be 12 AM on the date specified in the Declaration.  End dates of operations are assumed to be inclusive: the end time is assumed to be 12 midnight PM on the date specified.</p></li>
@@ -129,7 +134,7 @@ This applies for both MRCA and VEA determinations.</p>
 </ul>
 </section>
 <section id="counting-days-of-service">
-<h2>Counting Days of Service<a class="headerlink" href="#counting-days-of-service" title="Permalink to this headline">¶</a></h2>
+<h2>Counting Days of Service<a class="headerlink" href="#counting-days-of-service" title="Link to this heading">¶</a></h2>
 <p>The policy intention is to count whole days of service.  The issue is how to do this given the service history data.</p>
 <p>In particular, the service history data:</p>
 <ul class="simple">
@@ -145,7 +150,7 @@ This applies for both MRCA and VEA determinations.</p>
 <p>The consequence of these assumptions is that we need to adjust start and end dates when a service record shows an operation starting and ending on the same day.  These are otherwise ‘overlapping’: assuming the end date is inclusive.  We subtract one day from end dates which overlap with subsequent operations.  Otherwise there would be double counting.</p>
 </section>
 <section id="semantic-validation-of-service-history">
-<h2>Semantic Validation of Service History<a class="headerlink" href="#semantic-validation-of-service-history" title="Permalink to this headline">¶</a></h2>
+<h2>Semantic Validation of Service History<a class="headerlink" href="#semantic-validation-of-service-history" title="Link to this heading">¶</a></h2>
 <p>The following validation rules apply to service history.  The API returns an error response if any of these are failed.</p>
 <ul class="simple">
 <li><p>All periods of operational service have a start date that is after (not just the same as) the end date, if any.</p></li>

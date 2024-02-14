@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interface Specification &mdash; DVA SoP API 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -25,14 +26,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> DVA SoP API
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DVA SoP API
           </a>
               <div class="version">
                 1.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -62,8 +67,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Interface Specification</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Interface Specification</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/specs.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -74,18 +79,19 @@
            <div itemprop="articleBody">
              
   <section id="interface-specification">
-<h1>Interface Specification<a class="headerlink" href="#interface-specification" title="Permalink to this headline">¶</a></h1>
+<h1>Interface Specification<a class="headerlink" href="#interface-specification" title="Link to this heading">¶</a></h1>
 <section id="clarifications">
-<h2>Clarifications<a class="headerlink" href="#clarifications" title="Permalink to this headline">¶</a></h2>
+<h2>Clarifications<a class="headerlink" href="#clarifications" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>For the SoP Support Service, the incident type can be set to ‘aggravation’.  This is intended to cover injuries or diseases covered by Section 27(d) and 30 of MRCA: basically non-service conditions made worse by service <a class="footnote-reference brackets" href="#f1" id="id1">1</a>.  If the incident type is ‘aggravation’, the user of the service needs to provide both an onset date (or range of dates) and an aggravation date (or range of dates).  The requirement for both dates is to help evaluate SoP factors where the time between initial onset and aggravation is important.</p></li>
+<li><p>For the SoP Support Service, the incident type can be set to ‘aggravation’.  This is intended to cover injuries or diseases covered by Section 27(d) and 30 of MRCA: basically non-service conditions made worse by service <a class="footnote-reference brackets" href="#f1" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.  If the incident type is ‘aggravation’, the user of the service needs to provide both an onset date (or range of dates) and an aggravation date (or range of dates).  The requirement for both dates is to help evaluate SoP factors where the time between initial onset and aggravation is important.</p></li>
 </ul>
 <p class="rubric">Footnotes</p>
-<dl class="footnote brackets">
-<dt class="label" id="f1"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>See discussion in  <em>Larter and Military Rehabilitation and Compensation Commission (Compensation) [2017] AATA 67 (25 January 2017) for discussion)</em> (<a class="reference external" href="http://www.austlii.edu.au/au/cases/cth/AATA/2017/67.html">http://www.austlii.edu.au/au/cases/cth/AATA/2017/67.html</a>).</p>
-</dd>
-</dl>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="f1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>See discussion in  <em>Larter and Military Rehabilitation and Compensation Commission (Compensation) [2017] AATA 67 (25 January 2017) for discussion)</em> (<a class="reference external" href="http://www.austlii.edu.au/au/cases/cth/AATA/2017/67.html">http://www.austlii.edu.au/au/cases/cth/AATA/2017/67.html</a>).</p>
+</aside>
+</aside>
 </section>
 </section>
 
